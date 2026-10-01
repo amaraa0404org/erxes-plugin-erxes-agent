@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "description": "AI agents chat — BYOK multi-provider assistant, threads, approvals and artifacts for erxes",
   "icon": "IconSparkles",
+  "artifact": {
+    "url": "https://github.com/amaraa0404org/erxes-plugin-erxes-agent/releases/download/v0.1.0/erxes-agent-0.1.0.tgz",
+    "sha256": "894de4094938d941d0bec3aaf70c00ffa683497f149391da3f22325b76419a28"
+  },
   "api": {
-    "address": "http://localhost:3306",
     "port": 3306,
     "health": "/health",
     "env": [
@@ -19,7 +22,7 @@
   },
   "ui": {
     "remote": "erxes_agent_ui",
-    "entry": "http://localhost:3016/remoteEntry.js",
+    "entry": "https://amaraa0404org.github.io/erxes-plugin-erxes-agent/dist/latest/erxes_agent_ui/remoteEntry.js",
     "exposes": [
       "./config",
       "./erxes_agent",

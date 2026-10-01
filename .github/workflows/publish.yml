@@ -1,8 +1,9 @@
 name: publish
 
-# Publishes both contract artifacts on every tag v*:
+# Publishes the contract artifacts on every tag v*:
 #   ui remoteEntry -> GitHub Pages dist/<version>/<name>_ui/ and dist/latest/
 #   api image      -> ghcr.io/<owner>/plugin-<name>-api:<version>,latest
+#   plugin tarball -> GitHub Release asset <name>-<version>.tgz (artifact.url)
 on:
   push:
     tags: ['v*']
@@ -82,3 +83,31 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository_owner }}/plugin-erxes-agent-api:${{ steps.version.outputs.version }}
             ghcr.io/${{ github.repository_owner }}/plugin-erxes-agent-api:latest
+
+  # Linux-built release tarball — the plugin host downloads this on install.
+  # Building here (not locally) keeps native .node binaries Linux-compatible.
+  artifact:
+    runs-on: ubuntu-latest
+    env:
+      RAW_VERSION: ${{ github.event.inputs.version || github.ref_name }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install
+        run: |
+          pnpm --dir api install
+          pnpm --dir ui install
+      - name: Pack artifact
+        run: node scripts/pack.mjs
+      - name: Upload release asset
+        run: |
+          V="$RAW_VERSION"
+          V="${V#v}"
+          gh release create "v${V}" --generate-notes || true
+          gh release upload "v${V}" "dist-artifact/erxes-agent-${V}.tgz" --clobber
