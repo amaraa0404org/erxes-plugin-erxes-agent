@@ -1,0 +1,30 @@
+{
+  "name": "erxes-agent",
+  "version": "0.1.0",
+  "description": "AI agents chat — BYOK multi-provider assistant, threads, approvals and artifacts for erxes",
+  "icon": "IconSparkles",
+  "api": {
+    "address": "http://localhost:3306",
+    "port": 3306,
+    "health": "/health",
+    "env": [
+      "MONGO_URL",
+      "REDIS_HOST",
+      "REDIS_PORT",
+      "REDIS_PASSWORD",
+      "JWT_TOKEN_SECRET",
+      "CF_OS_EXCHANGE_SECRET"
+    ],
+    "hasSubscriptions": true
+  },
+  "ui": {
+    "remote": "erxes_agent_ui",
+    "entry": "http://localhost:3016/remoteEntry.js",
+    "exposes": [
+      "./config",
+      "./erxes_agent",
+      "./erxes_agentSettings",
+      "./floatingWidget"
+    ]
+  }
+}

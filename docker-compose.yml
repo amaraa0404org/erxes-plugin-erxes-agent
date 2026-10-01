@@ -1,0 +1,28 @@
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - '27017:27017'
+
+  redis:
+    image: redis:7
+    ports:
+      - '6379:6379'
+
+  plugin-erxes-agent-api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    env_file: api/.env
+    environment:
+      PORT: 3306
+      MONGO_URL: mongodb://mongo:27017/erxes
+      REDIS_HOST: redis
+      REDIS_PORT: '6379'
+      NODE_ENV: production
+      LOAD_BALANCER_ADDRESS: http://plugin-erxes-agent-api:3306
+    ports:
+      - '3306:3306'
+    depends_on:
+      - mongo
+      - redis

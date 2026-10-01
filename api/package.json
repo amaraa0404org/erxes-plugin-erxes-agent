@@ -1,0 +1,42 @@
+{
+  "name": "erxes-agent-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "erxes-agent plugin API — Express + Apollo Federation subgraph for erxes",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "start": "node dist/main.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.44",
+    "@mastra/ai-sdk": "^1.10.0",
+    "@mastra/core": "^1.63.2",
+    "@mastra/memory": "^1.28.1",
+    "@mastra/mongodb": "^1.18.4",
+    "@mastra/quickjs": "^0.1.0",
+    "@mastra/redis-streams": "^0.4.0",
+    "@trpc/client": "^11.0.0",
+    "@trpc/server": "^11.0.0",
+    "ai": "^7.0.83",
+    "dotenv": "^16.4.7",
+    "erxes-api-shared": "file:../vendor/erxes-api-shared-3.0.0.tgz",
+    "express": "^4.21.2",
+    "graphql": "^16.10.0",
+    "graphql-subscriptions": "^3.0.0",
+    "graphql-tag": "^2.12.6",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "8.13.2",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.10.0",
+    "tsc-alias": "^1.8.8",
+    "tsx": "^4.19.3",
+    "typescript": "5.7.3"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "erxes-agent-ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "erxes-agent plugin UI — Module Federation remote for erxes core-ui",
+  "scripts": {
+    "dev": "rspack serve --port 3016",
+    "build": "rspack build --mode production",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/react": "^4.0.86",
+    "@apollo/client": "^3.11.8",
+    "@react-pdf/renderer": "3.1.14",
+    "@tabler/icons-react": "^3.34.0",
+    "ai": "^7.0.83",
+    "docx": "^9.7.1",
+    "docx-preview": "^0.3.7",
+    "exceljs": "^4.4.0",
+    "graphql": "^16.10.0",
+    "jotai": "^2.12.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-i18next": "^15.1.1",
+    "react-markdown": "^10.1.0",
+    "react-router": "^7.1.5",
+    "react-router-dom": "^7.1.1",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@module-federation/enhanced": "0.6.6",
+    "@rspack/cli": "1.0.5",
+    "@rspack/core": "1.0.5",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "erxes-ui": "file:../vendor/erxes-ui-3.0.0.tgz",
+    "postcss": "^8.4.38",
+    "postcss-loader": "^8.2.0",
+    "tailwindcss": "^4.1.17",
+    "typescript": "5.7.3",
+    "ui-modules": "file:../vendor/erxes-ui-modules-3.0.0.tgz"
+  },
+  "pnpm": {
+    "overrides": {
+      "erxes-ui": "file:../vendor/erxes-ui-3.0.0.tgz"
+    }
+  }
+}

@@ -1,0 +1,145 @@
+/*
+  Plugin-owned stylesheet. The core-ui host compiles Tailwind classes for the
+  plugin sources that exist at HOST build time (`@source '../../plugins/'`),
+  so a remote deployed against a stale host renders without its newer classes.
+  Shipping this stylesheet with the remote makes the plugin self-sufficient,
+  while the `ea` prefix isolates every generated utility from host classes.
+  Preflight is deliberately omitted so this remote cannot reset host elements.
+
+  Scope notes:
+  - `@source './'` scans only this plugin's sources. Shared erxes-ui and
+    ui-modules component classes are compiled by the host stylesheet.
+  - The `@theme` block mirrors the host's token mappings so generated
+    utilities resolve the same design tokens. Actual token values
+    (oklch colors, fonts, radii) stay host-owned on `:root` and are
+    deliberately NOT redeclared here.
+*/
+@layer theme, base, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme) prefix(ea);
+@import 'tailwindcss/utilities.css' layer(utilities) prefix(ea) source(none);
+
+@source './';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-*: initial;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  --text-*: initial;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 0.875rem;
+  --text-sm: 0.8125rem;
+  --text-sm--line-height: 1rem;
+  --text-base: 0.875rem;
+  --text-base--line-height: 1.125rem;
+  --text-lg: 1rem;
+  --text-lg--line-height: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.75rem;
+
+  --color-border: var(--border);
+  --color-scroll: var(--scroll);
+  --color-ring: var(--ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-card: var(--background);
+
+  --color-sidebar: var(--sidebar-background);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-chart-50: var(--chart-50);
+  --color-chart-100: var(--chart-100);
+  --color-chart-200: var(--chart-200);
+  --color-chart-300: var(--chart-300);
+  --color-chart-400: var(--chart-400);
+  --color-chart-500: var(--chart-500);
+  --color-chart-600: var(--chart-600);
+  --color-chart-700: var(--chart-700);
+  --color-chart-800: var(--chart-800);
+  --color-chart-900: var(--chart-900);
+  --color-chart-950: var(--chart-950);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --spacing-cell: 33px;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-spinner: spinner 0.96s linear infinite;
+
+  --shadow-focus: 0px 0px 0px 4px rgba(79, 70, 229, 0.25),
+    0px 0px 0px 1px var(--primary);
+  --shadow-subtle: 0px 0px 0px 1px var(--primary);
+  --shadow-destructive: 0px 0px 0px 1px var(--destructive);
+  --shadow-focus-destructive: 0px 0px 0px 4px oklch(0.6334 0.2103 25.32 / 25%),
+    0px 0px 0px 1px var(--destructive);
+  --shadow-xs: 0 0 0 1px var(--border-shadow), 0 1px 1px var(--shadow),
+    0 2px 2px var(--shadow);
+  --shadow-sm: 0 0 0 1px var(--border-shadow), 0 1px 1px var(--shadow),
+    0 2px 2px var(--shadow), 0 4px 4px var(--shadow);
+  --shadow-lg: 0 0 0 1px var(--border-shadow), 0 1px 1px var(--shadow),
+    0 2px 2px var(--shadow), 0 4px 4px var(--shadow), 0 8px 8px var(--shadow);
+  --shadow-xl: 0 0 0 1px var(--border-shadow), 0 1px 1px var(--shadow),
+    0 2px 2px var(--shadow), 0 4px 4px var(--shadow), 0 8px 8px var(--shadow),
+    0 16px 16px var(--shadow);
+
+  --ring-color: var(--ring);
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes spinner {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.15;
+    }
+  }
+}
