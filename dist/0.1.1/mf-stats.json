@@ -1,0 +1,357 @@
+{
+  "id": "erxes_agent_ui",
+  "name": "erxes_agent_ui",
+  "metaData": {
+    "name": "erxes_agent_ui",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "0.1.1",
+      "buildName": "erxes-agent-ui"
+    },
+    "remoteEntry": {
+      "name": "remoteEntry.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "@mf-types.zip",
+      "api": "@mf-types.d.ts"
+    },
+    "globalName": "erxes_agent_ui",
+    "pluginVersion": "0.6.6",
+    "publicPath": "auto"
+  },
+  "shared": [
+    {
+      "singleton": true,
+      "requiredVersion": "^3.14.1",
+      "shareScope": "default",
+      "name": "@apollo/client",
+      "version": "3.14.1",
+      "eager": false,
+      "id": "erxes_agent_ui:@apollo/client",
+      "assets": {
+        "js": {
+          "async": [
+            "366.js"
+          ],
+          "sync": [
+            "663.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^18.3.1",
+      "shareScope": "default",
+      "name": "react-dom",
+      "version": "18.3.1",
+      "eager": false,
+      "id": "erxes_agent_ui:react-dom",
+      "assets": {
+        "js": {
+          "async": [
+            "366.js"
+          ],
+          "sync": [
+            "389.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^7.18.4",
+      "shareScope": "default",
+      "name": "react-router-dom",
+      "version": "7.18.4",
+      "eager": false,
+      "id": "erxes_agent_ui:react-router-dom",
+      "assets": {
+        "js": {
+          "async": [
+            "366.js",
+            "389.js",
+            "515.js"
+          ],
+          "sync": [
+            "175.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^7.18.4",
+      "shareScope": "default",
+      "name": "react-router",
+      "version": "7.18.4",
+      "eager": false,
+      "id": "erxes_agent_ui:react-router",
+      "assets": {
+        "js": {
+          "async": [
+            "366.js"
+          ],
+          "sync": [
+            "515.js",
+            "842.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": [
+        "./erxes_agentSettings",
+        "./erxes_agent"
+      ]
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^18.3.1",
+      "shareScope": "default",
+      "name": "react",
+      "version": "18.3.1",
+      "eager": false,
+      "id": "erxes_agent_ui:react",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "366.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": [
+        "./config",
+        "./erxes_agent",
+        "./erxes_agentSettings",
+        "./floatingWidget"
+      ]
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^undefined",
+      "shareScope": "default",
+      "name": "erxes-ui",
+      "version": "*",
+      "eager": false,
+      "id": "erxes_agent_ui:erxes-ui",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": []
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": [
+        "./floatingWidget"
+      ]
+    },
+    {
+      "singleton": true,
+      "requiredVersion": "^undefined",
+      "shareScope": "default",
+      "name": "ui-modules",
+      "version": "*",
+      "eager": false,
+      "id": "erxes_agent_ui:ui-modules",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": []
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      },
+      "usedIn": []
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "path": "./config",
+      "id": "erxes_agent_ui:config",
+      "name": "config",
+      "requires": [
+        "react"
+      ],
+      "file": "src/config.tsx",
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_config.js"
+          ],
+          "async": [
+            "366.js",
+            "509.js",
+            "802.js",
+            "__federation_expose_floatingWidget.js",
+            "601.js"
+          ]
+        },
+        "css": {
+          "sync": [
+            "38.css"
+          ],
+          "async": [
+            "38.css"
+          ]
+        }
+      }
+    },
+    {
+      "path": "./erxes_agent",
+      "id": "erxes_agent_ui:erxes_agent",
+      "name": "erxes_agent",
+      "requires": [
+        "react",
+        "react-router"
+      ],
+      "file": "src/modules/ErxesAgentMain.tsx",
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_erxes_agent.js"
+          ],
+          "async": [
+            "366.js",
+            "474.js",
+            "515.js",
+            "509.js",
+            "802.js",
+            "__federation_expose_floatingWidget.js",
+            "778.js",
+            "663.js",
+            "513.js",
+            "231.js",
+            "131.js",
+            "550.js",
+            "597.js",
+            "977.js",
+            "523.js",
+            "677.js",
+            "831.js",
+            "713.js",
+            "175.js",
+            "389.js"
+          ]
+        },
+        "css": {
+          "sync": [
+            "38.css"
+          ],
+          "async": [
+            "38.css"
+          ]
+        }
+      }
+    },
+    {
+      "path": "./erxes_agentSettings",
+      "id": "erxes_agent_ui:erxes_agentSettings",
+      "name": "erxes_agentSettings",
+      "requires": [
+        "react",
+        "react-router"
+      ],
+      "file": "src/modules/ErxesAgentSettings.tsx",
+      "assets": {
+        "js": {
+          "sync": [
+            "__federation_expose_erxes_agentSettings.js"
+          ],
+          "async": [
+            "366.js",
+            "474.js",
+            "515.js",
+            "509.js",
+            "802.js",
+            "__federation_expose_floatingWidget.js",
+            "884.js",
+            "175.js",
+            "389.js",
+            "663.js",
+            "32.js"
+          ]
+        },
+        "css": {
+          "sync": [
+            "38.css"
+          ],
+          "async": [
+            "38.css"
+          ]
+        }
+      }
+    },
+    {
+      "path": "./floatingWidget",
+      "id": "erxes_agent_ui:floatingWidget",
+      "name": "floatingWidget",
+      "requires": [
+        "react",
+        "erxes-ui"
+      ],
+      "file": "src/widgets/FloatingWidget.tsx",
+      "assets": {
+        "js": {
+          "sync": [
+            "509.js",
+            "802.js",
+            "__federation_expose_floatingWidget.js"
+          ],
+          "async": [
+            "366.js",
+            "663.js",
+            "513.js",
+            "231.js",
+            "131.js",
+            "550.js",
+            "597.js",
+            "977.js",
+            "523.js",
+            "677.js",
+            "831.js",
+            "713.js"
+          ]
+        },
+        "css": {
+          "sync": [
+            "38.css"
+          ],
+          "async": []
+        }
+      }
+    }
+  ]
+}
