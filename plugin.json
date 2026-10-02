@@ -1,11 +1,10 @@
 {
   "name": "erxes-agent",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AI agents chat — BYOK multi-provider assistant, threads, approvals and artifacts for erxes",
   "icon": "IconSparkles",
   "artifact": {
-    "url": "https://github.com/amaraa0404org/erxes-plugin-erxes-agent/releases/download/v0.1.0/erxes-agent-0.1.0.tgz",
-    "sha256": "894de4094938d941d0bec3aaf70c00ffa683497f149391da3f22325b76419a28"
+    "url": "https://github.com/amaraa0404org/erxes-plugin-erxes-agent/releases/download/v0.1.1/erxes-agent-0.1.1.tgz"
   },
   "api": {
     "port": 3306,

@@ -125,7 +125,7 @@ try {
     // Prefer pnpm deploy: it copies the package and installs production deps
     // resolving file:/workspace: specs into real folders. Falls back to a
     // prod install in-place when deploy is unavailable (non-workspace repo).
-    const deployed = runQuiet('pnpm', ['--dir', 'api', 'deploy', '--prod', '--legacy', stagingApi]);
+    const deployed = runQuiet('pnpm', ['--dir', 'api', 'deploy', '--prod', '--legacy', '--config.node-linker=hoisted', stagingApi]);
 
     if (!deployed) {
       mkdirSync(stagingApi, { recursive: true });
@@ -133,7 +133,7 @@ try {
 
       const original = readFileSync(path.join(stagingApi, 'package.json'), 'utf8');
       absolutizeFileDeps(path.join(stagingApi, 'package.json'), path.join(root, 'api'));
-      run('pnpm', ['--dir', stagingApi, 'install', '--prod', '--no-frozen-lockfile']);
+      run('pnpm', ['--dir', stagingApi, 'install', '--prod', '--no-frozen-lockfile', '--config.node-linker=hoisted']);
       // Ship the pristine manifest, not the path-rewritten install copy.
       writeFileSync(path.join(stagingApi, 'package.json'), original);
     }
