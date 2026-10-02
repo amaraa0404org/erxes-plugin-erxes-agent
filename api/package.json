@@ -1,6 +1,6 @@
 {
   "name": "erxes-agent-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "erxes-agent plugin API — Express + Apollo Federation subgraph for erxes",
   "main": "dist/main.js",

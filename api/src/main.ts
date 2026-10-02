@@ -26,7 +26,7 @@ startPlugin({
   subscriptionPluginPath: path.resolve(
     __dirname,
     'apollo',
-    process.env.NODE_ENV === 'production' ? 'subscription.js' : 'subscription.ts',
+    `subscription${path.extname(__filename)}`,
   ),
   graphql: async () => ({
     typeDefs: await typeDefs(),
