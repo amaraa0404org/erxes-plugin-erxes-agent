@@ -5,7 +5,7 @@
     "name": "erxes_agent_ui",
     "type": "app",
     "buildInfo": {
-      "buildVersion": "0.1.1",
+      "buildVersion": "0.1.2",
       "buildName": "erxes-agent-ui"
     },
     "remoteEntry": {
@@ -122,8 +122,8 @@
         }
       },
       "usedIn": [
-        "./erxes_agentSettings",
-        "./erxes_agent"
+        "./erxes_agent",
+        "./erxes_agentSettings"
       ]
     },
     {
@@ -147,8 +147,8 @@
         }
       },
       "usedIn": [
-        "./config",
         "./erxes_agent",
+        "./config",
         "./erxes_agentSettings",
         "./floatingWidget"
       ]
